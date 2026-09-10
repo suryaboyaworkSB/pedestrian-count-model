@@ -1,0 +1,28 @@
+tracker_type: botsort
+
+# ── Detection thresholds ────────────────────────────────────────────────
+# Lower these so people in shadow (low confidence) are still tracked
+track_high_thresh: 0.30      # primary association threshold
+track_low_thresh:  0.05      # second-chance threshold for shadow regions
+new_track_thresh:  0.40      # minimum confidence to start a NEW track
+
+# ── Track persistence ───────────────────────────────────────────────────
+# 150 frames = 6 seconds at 25fps — keeps ID alive through long shadows
+track_buffer: 150
+
+# ── Matching ────────────────────────────────────────────────────────────
+match_thresh: 0.85           # IoU match threshold
+proximity_thresh: 0.5        # spatial proximity for appearance matching
+appearance_thresh: 0.30      # appearance similarity threshold (lower = stricter)
+
+# ── ReID (appearance-based re-identification) ───────────────────────────
+# This is what makes BoT-SORT better than ByteTrack for shadow problems:
+# it stores what each person looks like and uses that to re-match them
+# even after they've been invisible for track_buffer frames.
+with_reid: true
+
+# ── Global Motion Compensation ──────────────────────────────────────────
+# Compensates for camera shake / movement
+gmc_method: sparseOptFlow
+
+fuse_score: true

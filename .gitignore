@@ -1,0 +1,15 @@
+# generated/runtime output
+outputs/
+src/outputs/
+data/
+
+# pretrained model weights (download via ultralytics instead)
+*.pt
+yolov8m_openvino_model/
+
+# python
+__pycache__/
+*.pyc
+
+# os
+.DS_Store

@@ -1,0 +1,22 @@
+tracker_type: bytetrack
+
+# How long (in frames) to keep a lost track alive before deleting it.
+# At 25fps, 90 frames = 3.6 seconds in shadow before the ID is dropped.
+# Increase this if people spend longer in dark/shadow regions.
+track_buffer: 90
+
+# High-confidence detections — used for primary matching
+track_high_thresh: 0.35
+
+# Low-confidence detections — used as a second chance to keep lost tracks alive
+# This is what saves tracks during shadow regions where confidence drops
+track_low_thresh: 0.05
+
+# Minimum confidence to start a brand new track
+new_track_thresh: 0.45
+
+# IoU threshold for matching detections to existing tracks
+match_thresh: 0.85
+
+# Fuse detection score into track matching score
+fuse_score: True
